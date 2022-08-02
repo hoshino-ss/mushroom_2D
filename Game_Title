@@ -1,0 +1,34 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
+
+
+public class Game_Title : MonoBehaviour
+{
+    public TextMeshProUGUI textTap;
+    private float time;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        textTap.color = GetAlphaColor(textTap.color);
+        if (Input.GetMouseButton(0))
+        {
+            FadeManager.Instance.LoadScene("MenuScene", 2.0f);
+        }
+    }
+    Color GetAlphaColor(Color color)
+    {
+        time += Time.deltaTime * 5.0f;
+        color.a = Mathf.Sin(time) * 0.5f + 0.5f;
+
+        return color;
+    }
+}
