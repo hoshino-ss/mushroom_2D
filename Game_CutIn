@@ -1,0 +1,35 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+
+public class Game_CutIn : MonoBehaviour
+{
+    private Animator animator;
+    public GameObject game_cutin;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+        game_cutin.SetActive(false);
+    }
+
+    public void CutIn() //メインGame.csから呼ぶ
+    {
+        game_cutin.SetActive(true);
+        animator.SetBool("isClick", true);
+    }
+
+    public void CutOut() //animatonから呼ぶ
+    {
+        game_cutin.SetActive(false);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
